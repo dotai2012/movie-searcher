@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -58,6 +59,11 @@ const config = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
+    }),
+    new webpack.DefinePlugin({
+      NODE_ENV: 'production',
+      API_KEY: '7c298d49541bf3a98b56f841d998d0a3',
+      BASE_URL: 'https://api.themoviedb.org/3',
     }),
   ],
 };
