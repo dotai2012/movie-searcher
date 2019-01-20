@@ -5,8 +5,9 @@ yarn.lock
 bundle.js
 npm-debug.log
 .DS_Store
+src/config/dev.js
+.env
 
 # IntelliJ
 *.iml
 /.idea
-src/config/dev.js

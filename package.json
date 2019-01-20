@@ -8,7 +8,7 @@
     "start": "concurrently \"npm run client:build\" \"npm run server:start\"",
     "client:build": "webpack --config ./webpack.production.config.js",
     "client:watch": "webpack -w",
-    "server:start": "cross-env NODE_ENV=production node app.js",
+    "server:start": "node app.js",
     "server:watch": "nodemon app.js"
   },
   "dependencies": {
@@ -18,7 +18,8 @@
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
     "cors": "^2.8.5",
-    "cross-env": "^5.2.0",
+    "dotenv": "^6.2.0",
+    "dotenv-webpack": "^1.7.0",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
     "moment": "^2.23.0",

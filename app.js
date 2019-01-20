@@ -3,9 +3,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const compression = require('compression');
+require('dotenv').config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(compression({ level: 9 }));
 app.use(cors());

@@ -1,6 +1,6 @@
-const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const config = {
   entry: { bundle: './src/index.js' },
@@ -60,11 +60,7 @@ const config = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
-    new webpack.DefinePlugin({
-      NODE_ENV: 'production',
-      API_KEY: '7c298d49541bf3a98b56f841d998d0a3',
-      BASE_URL: 'https://api.themoviedb.org/3',
-    }),
+    new Dotenv(),
   ],
 };
 module.exports = config;
