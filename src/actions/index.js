@@ -4,8 +4,9 @@ import qs from 'qs';
 import {
   FETCH_MOVIES, FETCH_MOVIE, FETCH_GENRES, SET_CURRENT_GENRE, SET_CURRENT_PAGE,
 } from './type';
-import { baseUrl, apiKey } from '../config/key';
+import { apiKey } from '../config/key';
 
+const BASE_URL = 'https://api.themoviedb.org/3';
 const currentTime = moment();
 const targetTime = currentTime.clone().subtract(2, 'months');
 
@@ -17,7 +18,7 @@ const fetchMovies = (genres, page = 1) => (dispatch) => {
     with_genres: genres,
     page,
   });
-  axios.get(`${baseUrl}/discover/movie?${query}`)
+  axios.get(`${BASE_URL}/discover/movie?${query}`)
     .then((res) => {
       dispatch({
         type: FETCH_MOVIES,
@@ -30,7 +31,7 @@ const fetchMovie = id => (dispatch) => {
   const query = qs.stringify({
     api_key: apiKey,
   });
-  axios.get(`${baseUrl}/movie/${id}?${query}`)
+  axios.get(`${BASE_URL}/movie/${id}?${query}`)
     .then((res) => {
       dispatch({
         type: FETCH_MOVIE,
@@ -40,7 +41,7 @@ const fetchMovie = id => (dispatch) => {
 };
 
 const fetchGenres = () => (dispatch) => {
-  axios.get(`${baseUrl}/genre/movie/list?api_key=${apiKey}`)
+  axios.get(`${BASE_URL}/genre/movie/list?api_key=${apiKey}`)
     .then((res) => {
       dispatch({
         type: FETCH_GENRES,
